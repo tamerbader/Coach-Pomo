@@ -15,13 +15,39 @@ export default class IntroTimer extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            defaultValue:25,
+            value:'0 Hr : 25 Min',
+            minimumValue: 0,
+            maximumValue: 300,
+            step: 5,
             hidden:true,
             visible:false,
         };
     }
+
+    _updateTime(value) {
+        var hours = 0;
+        var minutes = 0;
+        var seconds = 0;
+
+        hours  = Math.floor(value/60);
+        minutes = Math.floor((value - (hours*60)));
+        var time = hours + " Hr : " + minutes + " Min";
+        this.setState({value: time});
+    }
+
+
+
     render() {
         return (
             <View style = {styles.container}>
+                <View style = {styles.logoContainer}>
+                <Image 
+                style = {styles.logo}
+                source = {require('../../images/coaches.png')}
+
+                />
+                </View>
                 <View style = {styles.promptWrapper}>
                     <Text style = {styles.prompt}> How long do you want to stay productive? </Text>
                 </View>
@@ -29,7 +55,7 @@ export default class IntroTimer extends Component {
                     <View style = {styles.timerWrapper}>
                         <TextInput
                             style = {styles.timer}
-                            defaultValue = '01:25:00'
+                            defaultValue = {"" + this.state.value}
                             editable = {this.state.hidden}
                             placeholderTextColor = '#ffffff'
                             textAlign = 'center'
@@ -42,8 +68,13 @@ export default class IntroTimer extends Component {
 
                 <View style = {styles.selector}>
                     <Slider 
+                    value = {this.state.defaultValue}
                     style = {styles.slider}
                     minimumTrackTintColor = '#ffffff'
+                    minimumValue = {this.state.minimumValue}
+                    maximumValue = {this.state.maximumValue}
+                    step = {this.state.step}
+                    onValueChange={(value) => this._updateTime(value)}
                     />
                 </View>
             </View>
@@ -72,7 +103,7 @@ const styles = StyleSheet.create({
         height: 80,
         color: '#ffffff',
         fontFamily: 'Avenir',
-        fontSize: 80,
+        fontSize: 50,
 
     },
     timerWrapper: {
@@ -83,18 +114,27 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 70,
+        marginTop: 20,
     },
     prompt: {
         color: '#ffffff',
         fontFamily: 'Avenir',
-        fontSize: 25,
-        fontWeight: 'bold',
+        fontSize: 18,
         textAlign: 'center',
         margin: 30,
     },
     slider: {
         margin: 40,
 
+    },
+    logo: {
+        width: 100,
+        height: 100,
+        
+
+    },
+    logoContainer: {
+        alignItems: 'center',
+        marginTop: 40,
     }
 });

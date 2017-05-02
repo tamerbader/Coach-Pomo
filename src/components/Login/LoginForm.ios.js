@@ -11,6 +11,8 @@ StatusBar,
 Navigator,
 } from 'react-native';
 
+
+
 export default class LoginForm extends Component {
     constructor(props) {
         super(props);
@@ -41,7 +43,6 @@ render () {
         />
          <View style = {styles.buttonConatainer}>
             <TouchableOpacity>
-
              <View style = {styles.buttonWrapper}>
                  <Text style = {styles.buttonText}>Login</Text>
             </View>

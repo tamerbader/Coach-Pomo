@@ -18,7 +18,7 @@ import IntroTimer from './src/components/IntroTimer/IntroTimer'
 export default class Coach extends Component {
   render() {
     return (
-      < Login />
+      < IntroTimer />
     );
   }
 }
