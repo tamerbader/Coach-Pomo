@@ -7,7 +7,9 @@ import {
   Image,
   TextInput,
   KeyboardAvoidingView,
-  Slider
+  Slider,
+  Button,
+  TouchableOpacity,
 } from 'react-native';
 
 
@@ -76,6 +78,16 @@ export default class IntroTimer extends Component {
                     step = {this.state.step}
                     onValueChange={(value) => this._updateTime(value)}
                     />
+                    <View style = {styles.buttonConatainer}>
+            <TouchableOpacity>
+             <View style = {styles.buttonWrapper}>
+                 <Text style = {styles.buttonText}>Continue</Text>
+            </View>
+
+        </TouchableOpacity>
+
+
+         </View>
                 </View>
             </View>
         );
@@ -136,5 +148,26 @@ const styles = StyleSheet.create({
     logoContainer: {
         alignItems: 'center',
         marginTop: 40,
+    },
+    button: {
+    },
+    buttonConatainer: {
+        alignItems: 'center',
+    },
+    buttonWrapper: {
+        width: 150,
+        height: 50,
+        margin: 10,
+        backgroundColor: '#338ac5',
+        borderRadius: 100/2,
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    buttonText: {
+        fontSize: 23,
+        color: '#ffffff',
+        fontFamily: 'Avenir',
     }
 });
