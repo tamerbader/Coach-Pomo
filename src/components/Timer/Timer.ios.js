@@ -11,7 +11,9 @@ export default class Timer extends Component {
 render() {
     return (
     <View style = {styles.globalContainer}>
-        <View style={styles.topSection}></View>
+        <View style={styles.topSection}>
+            <Text style = {styles.warning}>*For Best Experience Plug In Charger!</Text>
+        </View>
         <View style={styles.middleSection}>
             <Image 
                 style = {styles.logo}
@@ -19,8 +21,11 @@ render() {
 
                 />
                 <Text style = {styles.timerText}>0 Hr : 35 Min</Text>
+                <Text style = {styles.ready}>Ready? Put Your Phone Face Down To Begin</Text>
         </View>
-        <View style={styles.bottomSection}></View>
+        <View style={styles.bottomSection}>
+            <Text style = {styles.giveUp}>Stop! I Can't Handle!</Text>
+        </View>
     </View>
 
 );
@@ -46,16 +51,37 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     logo: {
-        width: 100,
-        height: 100,
+        width: 150,
+        height: 150,
     },
     timerText: {
         textAlign: 'center',
         color: '#ffffff',
-        fontFamily: 'Avenir',
-        fontSize: 45,
+        fontFamily: 'AvenirNext-UltraLight',
+        fontSize: 55,
         marginTop: 50,
-    }
+    },
+    warning: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontFamily: 'Avenir',
+        fontSize: 15,
+        marginTop: 50,
+    },
+    giveUp: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontFamily: 'Avenir Next',
+        fontSize: 20,
+        marginTop: 20,
+    },
+    ready: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontFamily: 'Avenir Next',
+        fontSize: 15,
+        marginTop: 10,
+    },
 
 });
 

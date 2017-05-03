@@ -3,15 +3,29 @@ import {
 AppRegistry,
 StyleSheet,
 Text,
-View
+View,
+Image,
 } from 'react-native';
 
 export default class Timer extends Component {
 render() {
     return (
-
     <View style = {styles.globalContainer}>
-        <Text style = {styles.text}>Hello World</Text>
+        <View style={styles.topSection}>
+            <Text style = {styles.warning}>*For Best Experience Plug In Charger!</Text>
+        </View>
+        <View style={styles.middleSection}>
+            <Image 
+                style = {styles.logo}
+                source = {require('../../images/coaches.png')}
+
+                />
+                <Text style = {styles.timerText}>0 Hr : 35 Min</Text>
+                <Text style = {styles.ready}>Ready? Put Your Phone Face Down To Begin</Text>
+        </View>
+        <View style={styles.bottomSection}>
+            <Text style = {styles.giveUp}>Stop! I Can't Handle!</Text>
+        </View>
     </View>
 
 );
@@ -19,15 +33,55 @@ render() {
 }
 
 const styles = StyleSheet.create({
+    
     globalContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#000000',
+        flex:6,
+        backgroundColor: '#000000'
     },
-    text: {
-        color: '#000000',
-    }
+
+    topSection: {
+        flex:1,
+    },
+    middleSection: {
+        flex:4,
+        alignItems: 'center',
+
+    },
+    bottomSection: {
+        flex: 1,
+    },
+    logo: {
+        width: 150,
+        height: 150,
+    },
+    timerText: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontFamily: 'sans-serif-thin',
+        fontSize: 55,
+        marginTop: 50,
+    },
+    warning: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontFamily: 'sans-serif-thin',
+        fontSize: 15,
+        marginTop: 50,
+    },
+    giveUp: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontFamily: 'sans-serif-thin',
+        fontSize: 20,
+        marginTop: 20,
+    },
+    ready: {
+        textAlign: 'center',
+        color: '#ffffff',
+        fontFamily: 'sans-serif-thin',
+        fontSize: 15,
+        marginTop: 10,
+    },
 
 });
 

@@ -31,14 +31,13 @@ export default class Coach extends Component {
   }
   render() {
     return (
-      /*
+      
         <Navigator 
           initialRoute={{id: 'Login'}}
           renderScene={this.renderScene}
-          configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromRight}
+          configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
         
-        />*/
-        <Timer />
+        />
 
 
     );

@@ -25,7 +25,7 @@ export default class Login extends Component {
 }
     render() {
         return (
-            <KeyboardAvoidingView behavior = 'padding' style = {styles.container}>
+            <KeyboardAvoidingView behavior = 'padding' keyboardVerticalOffset={-220} style = {styles.container}>
 
                 <View style = {styles.logoContainer}>
                     <Image 
