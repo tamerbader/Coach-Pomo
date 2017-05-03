@@ -5,9 +5,33 @@ StyleSheet,
 Text,
 View,
 Image,
+Alert,
 } from 'react-native';
 
+import Proximity from 'react-native-proximity';
+
 export default class Timer extends Component {
+
+    componentDidMount(){
+ Proximity.addListener(this._proximityListener);
+}
+ 
+ _proximityListener(data) {
+     if (data.proximity) {
+         Alert.alert(
+  'WOW!',
+  'You Actually Put Your Phone Down',
+  [
+    {text: 'KYS', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+    {text: ';)', onPress: () => console.log('OK Pressed')},
+  ],
+  { cancelable: false }
+)
+     }
+ }
+
+
+
 render() {
     return (
     <View style = {styles.globalContainer}>
