@@ -39,7 +39,9 @@ export default class IntroTimer extends Component {
     }
 
     onPress = () => {
-    this.props.navigator.pop();
+    this.props.navigator.push({
+        id: 'Timer'
+    });
 };
 
 

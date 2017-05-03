@@ -15,6 +15,8 @@ import {
 
 import Login from './src/components/Login/Login';
 import IntroTimer from './src/components/IntroTimer/IntroTimer'
+import Timer from './src/components/Timer/Timer'
+
 
 export default class Coach extends Component {
   renderScene(route, navigator) {
@@ -23,6 +25,9 @@ export default class Coach extends Component {
             return (<Login navigator={navigator} title="Login" />)
           case 'IntroTimer':
             return (<IntroTimer navigator={navigator} title="IntroTimer" />)
+
+          case 'Timer':
+            return (<Timer navigator={navigator} title="Timer" />)
       }
   }
 
@@ -32,7 +37,7 @@ export default class Coach extends Component {
         <Navigator 
           initialRoute={{id: 'Login'}}
           renderScene={this.renderScene}
-          configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromRight}
+          configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
         
         />
     );
