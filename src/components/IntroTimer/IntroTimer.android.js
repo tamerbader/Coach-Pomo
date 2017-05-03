@@ -40,7 +40,8 @@ export default class IntroTimer extends Component {
 
     onPress = () => {
     this.props.navigator.push({
-        id: 'Timer'
+        id: 'Timer',
+        time: this.state.value,
     });
 };
 

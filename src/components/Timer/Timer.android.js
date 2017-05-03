@@ -5,9 +5,38 @@ StyleSheet,
 Text,
 View,
 Image,
+Alert
 } from 'react-native';
 
+import Proximity from 'react-native-proximity';
+
 export default class Timer extends Component {
+    constructor(props) {
+        super(props);
+        this.state =  {
+            values: 0,
+        };
+    }
+    componentDidMount(){
+ Proximity.addListener(this._proximityListener);
+}
+ 
+ _proximityListener(data) {
+     if (data.proximity) {
+         Alert.alert(
+  'Alert',
+  'Your Phones is Facing Down',
+  [
+    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+    {text: 'OK', onPress: () => console.log('OK Pressed')},
+  ],
+  { cancelable: false }
+)
+     }
+ }
+
+
+
 render() {
     return (
     <View style = {styles.globalContainer}>
@@ -20,7 +49,7 @@ render() {
                 source = {require('../../images/coaches.png')}
 
                 />
-                <Text style = {styles.timerText}>0 Hr : 35 Min</Text>
+                <Text style = {styles.timerText}>{this.props.time}</Text>
                 <Text style = {styles.ready}>Ready? Put Your Phone Face Down To Begin</Text>
         </View>
         <View style={styles.bottomSection}>

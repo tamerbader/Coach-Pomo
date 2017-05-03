@@ -27,7 +27,7 @@ export default class Coach extends Component {
             return (<IntroTimer navigator={navigator} title="IntroTimer" />)
 
           case 'Timer':
-            return (<Timer navigator={navigator} title="Timer" />)
+            return (<Timer navigator={navigator} title="Timer" time={route.time} />)
       }
   }
 
