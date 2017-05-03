@@ -12,6 +12,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import Proximity from 'react-native-proximity';
+
+
+
 
 export default class IntroTimer extends Component {
     constructor(props) {
@@ -24,8 +28,13 @@ export default class IntroTimer extends Component {
             step: 5,
             hidden:true,
             visible:false,
+            proximity: false,
         };
     }
+
+    onPress = () => {
+    this.props.navigator.pop();
+};
 
     _updateTime(value) {
         var hours = 0;
@@ -39,6 +48,7 @@ export default class IntroTimer extends Component {
     }
 
 
+    
 
     render() {
         return (
@@ -79,7 +89,7 @@ export default class IntroTimer extends Component {
                     onValueChange={(value) => this._updateTime(value)}
                     />
                     <View style = {styles.buttonConatainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {this.onPress()}} >
              <View style = {styles.buttonWrapper}>
                  <Text style = {styles.buttonText}>Continue</Text>
             </View>
@@ -92,6 +102,7 @@ export default class IntroTimer extends Component {
             </View>
         );
     }
+
 }
 
 const styles = StyleSheet.create({
@@ -171,3 +182,5 @@ const styles = StyleSheet.create({
         fontFamily: 'Avenir',
     }
 });
+
+AppRegistry.registerComponent('IntroTimer', () => IntroTimer);
