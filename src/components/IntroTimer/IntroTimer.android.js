@@ -38,6 +38,9 @@ export default class IntroTimer extends Component {
         this.setState({value: time});
     }
 
+    onPress = () => {
+    this.props.navigator.pop();
+};
 
 
     render() {
@@ -82,7 +85,7 @@ export default class IntroTimer extends Component {
                     onValueChange={(value) => this._updateTime(value)}
                     />
                     <View style = {styles.buttonConatainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {this.onPress()}}>
              <View style = {styles.buttonWrapper}>
                  <Text style = {styles.buttonText}>Continue</Text>
             </View>

@@ -12,8 +12,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import Proximity from 'react-native-proximity';
-
 
 
 
