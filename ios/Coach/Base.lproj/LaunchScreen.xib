@@ -16,23 +16,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coach2" translatesAutoresizingMaskIntoConstraints="NO" id="dhi-gm-w1D">
-                    <rect key="frame" x="120" y="-560" width="240" height="1600"/>
+                    <rect key="frame" x="60" y="-560" width="360" height="1600"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Coach Pomo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtX-bN-VFO">
-                    <rect key="frame" x="138" y="376" width="204" height="47"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.16470588235294117" green="0.74901960784313726" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="dhi-gm-w1D" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AuF-kC-bIl"/>
-                <constraint firstAttribute="trailing" secondItem="dhi-gm-w1D" secondAttribute="trailing" constant="120" id="C6i-aF-w1b"/>
+                <constraint firstAttribute="trailing" secondItem="dhi-gm-w1D" secondAttribute="trailing" constant="60" id="C6i-aF-w1b"/>
                 <constraint firstItem="dhi-gm-w1D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LBi-6m-1Kd"/>
-                <constraint firstItem="dhi-gm-w1D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="120" id="LaN-sZ-63P"/>
-                <constraint firstItem="rtX-bN-VFO" firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="100" id="cJK-f0-vjP"/>
-                <constraint firstItem="rtX-bN-VFO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kSV-RR-w0v"/>
+                <constraint firstItem="dhi-gm-w1D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="LaN-sZ-63P"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
