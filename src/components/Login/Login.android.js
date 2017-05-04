@@ -40,28 +40,27 @@ export default class Login extends Component {
             <StatusBar
             barStyle = 'light-content'
             />
-            <TextInput 
-            style = {styles.form}
-            placeholder = 'Username'
-            placeholderTextColor = '#e5e5e5'
-            autoCapitalize = 'none'
-            underlineColorAndroid='rgba(0,0,0,0)'
-        />
-        <TextInput 
-            style = {styles.form}
-            placeholder = 'Password'
-            placeholderTextColor = '#e5e5e5'
-            autoCapitalize = 'none'
-            secureTextEntry = {true}
-            underlineColorAndroid='rgba(0,0,0,0)'
-        />
+
          <View style = {styles.buttonConatainer}>
-            <TouchableOpacity onPress={() => {this.onPress()}}>
-             <View style = {styles.buttonWrapper}>
-                 <Text style = {styles.buttonText}>Login</Text>
+
+
+            <View style = {styles.signUp} >
+                <TouchableOpacity onPress={() => {this.onPress()}}>
+                    <View style = {styles.buttonWrappersign}>
+                        <Text style = {styles.buttonTextsign}>Sign Up</Text>
+                    </View>
+
+                </TouchableOpacity>
             </View>
 
-        </TouchableOpacity>
+            <View style={styles.logIn}>
+                <TouchableOpacity onPress={() => {this.onPress()}}>
+                <View style = {styles.buttonWrapperlogin}>
+                    <Text style = {styles.buttonTextlogin}>Login</Text>
+                </View>
+
+                </TouchableOpacity>
+            </View>
 
 
          </View>
@@ -95,8 +94,18 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         marginTop: 25,
         fontFamily: 'sans-serif-thin',
-        fontSize: 16,
+        fontSize: 18,
 
+    },
+    signUp: {
+        flex:1,
+        alignItems:'flex-end',
+        justifyContent: 'center'
+    },
+    logIn: {
+        flex: 1,
+        alignItems: 'flex-start',
+        justifyContent: 'center'
     },
     form: {
         height: 40,
@@ -113,23 +122,41 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     buttonConatainer: {
-        alignItems: 'center',
+        flex: 2,
+        flexDirection: 'row',  
     },
-    buttonWrapper: {
+    buttonWrappersign: {
         width: 150,
         height: 50,
         margin: 10,
-        backgroundColor: '#338ac5',
+        backgroundColor: '#36a5ef',
+        borderRadius: 100/2,
+        borderColor: '#000000',
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    buttonWrapperlogin: {
+        width: 150,
+        height: 50,
+        margin: 10,
+        backgroundColor: '#ffffff',
         borderRadius: 100/2,
         overflow: 'hidden',
         justifyContent: 'center',
         alignItems: 'center',
 
     },
-    buttonText: {
-        fontSize: 19,
+    buttonTextsign: {
+        fontSize: 21,
         color: '#ffffff',
-        fontFamily: 'sans-serif-thin',
+        fontFamily: 'sans-serif-light',
+    },
+    buttonTextlogin: {
+        fontSize: 21,
+        color: '#3498db',
+        fontFamily: 'sans-serif-light',
     }
 });
 

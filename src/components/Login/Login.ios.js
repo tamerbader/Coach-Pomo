@@ -18,20 +18,19 @@ export default class Login extends Component {
         console.log('Hello');
         console.log(props);
     }
-
-    onPress = () => {
-    this.props.navigator.push({
-        id: 'IntroTimer'
+    onPress() {
+        this.props.navigator.push({
+            id: 'IntroTimer'
 });
-};
+}
     render() {
         return (
-            <KeyboardAvoidingView behavior = 'padding' style = {styles.container}>
+            <KeyboardAvoidingView behavior = 'padding' keyboardVerticalOffset={-220} style = {styles.container}>
 
                 <View style = {styles.logoContainer}>
                     <Image 
                     style = {styles.logo}
-                    source = {require('../../images/coaches.png')}
+                    source = {require('../../images/coach2.png')}
                      />
                      <Text style = {styles.slogan}>Your Focus Coach Using React Native!</Text>
 
@@ -41,28 +40,27 @@ export default class Login extends Component {
             <StatusBar
             barStyle = 'light-content'
             />
-            <TextInput 
-            style = {styles.form}
-            placeholder = 'Username'
-            placeholderTextColor = '#e5e5e5'
-            autoCapitalize = 'none'
-            underlineColorAndroid='rgba(0,0,0,0)'
-        />
-        <TextInput 
-            style = {styles.form}
-            placeholder = 'Password'
-            placeholderTextColor = '#e5e5e5'
-            autoCapitalize = 'none'
-            secureTextEntry = {true}
-            underlineColorAndroid='rgba(0,0,0,0)'
-        />
+
          <View style = {styles.buttonConatainer}>
-            <TouchableOpacity onPress={() => {this.onPress()}}>
-             <View style = {styles.buttonWrapper}>
-                 <Text style = {styles.buttonText}>Login</Text>
+
+
+            <View style = {styles.signUp} >
+                <TouchableOpacity onPress={() => {this.onPress()}}>
+                    <View style = {styles.buttonWrappersign}>
+                        <Text style = {styles.buttonTextsign}>Sign Up</Text>
+                    </View>
+
+                </TouchableOpacity>
             </View>
 
-        </TouchableOpacity>
+            <View style={styles.logIn}>
+                <TouchableOpacity onPress={() => {this.onPress()}}>
+                <View style = {styles.buttonWrapperlogin}>
+                    <Text style = {styles.buttonTextlogin}>Login</Text>
+                </View>
+
+                </TouchableOpacity>
+            </View>
 
 
          </View>
@@ -77,7 +75,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#3498db',
+        backgroundColor: '#2abf88',
 
     },
     logoContainer: {
@@ -96,8 +94,18 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         marginTop: 25,
         fontFamily: 'Avenir',
-        fontSize: 16,
+        fontSize: 18,
 
+    },
+    signUp: {
+        flex:1,
+        alignItems:'flex-end',
+        justifyContent: 'center'
+    },
+    logIn: {
+        flex: 1,
+        alignItems: 'flex-start',
+        justifyContent: 'center'
     },
     form: {
         height: 40,
@@ -114,22 +122,40 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     buttonConatainer: {
-        alignItems: 'center',
+        flex: 2,
+        flexDirection: 'row',  
     },
-    buttonWrapper: {
+    buttonWrappersign: {
         width: 150,
         height: 50,
         margin: 10,
-        backgroundColor: '#338ac5',
+        backgroundColor: '#2dce94',
+        borderRadius: 100/2,
+        borderColor: '#000000',
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    buttonWrapperlogin: {
+        width: 150,
+        height: 50,
+        margin: 10,
+        backgroundColor: '#ffffff',
         borderRadius: 100/2,
         overflow: 'hidden',
         justifyContent: 'center',
         alignItems: 'center',
 
     },
-    buttonText: {
-        fontSize: 19,
+    buttonTextsign: {
+        fontSize: 21,
         color: '#ffffff',
+        fontFamily: 'Avenir',
+    },
+    buttonTextlogin: {
+        fontSize: 21,
+        color: '#2abf88',
         fontFamily: 'Avenir',
     }
 });

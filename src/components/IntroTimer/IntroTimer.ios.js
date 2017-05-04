@@ -56,7 +56,7 @@ export default class IntroTimer extends Component {
                 <View style = {styles.logoContainer}>
                 <Image 
                 style = {styles.logo}
-                source = {require('../../images/coaches.png')}
+                source = {require('../../images/coach2.png')}
 
                 />
                 </View>
@@ -108,7 +108,7 @@ export default class IntroTimer extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#3498db',
+        backgroundColor: '#2abf88',
 
     },
     timerContainer: {
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         width: 150,
         height: 50,
         margin: 10,
-        backgroundColor: '#338ac5',
+        backgroundColor: '#26ae7d',
         borderRadius: 100/2,
         overflow: 'hidden',
         justifyContent: 'center',
