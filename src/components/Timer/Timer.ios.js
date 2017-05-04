@@ -12,6 +12,8 @@ import Proximity from 'react-native-proximity';
 
 export default class Timer extends Component {
 
+    
+
     componentDidMount(){
  Proximity.addListener(this._proximityListener);
 }
@@ -41,7 +43,7 @@ render() {
         <View style={styles.middleSection}>
             <Image 
                 style = {styles.logo}
-                source = {require('../../images/coaches.png')}
+                source = {require('../../images/hourglass4.png')}
 
                 />
                 <Text style = {styles.timerText}>0 Hr : 35 Min</Text>

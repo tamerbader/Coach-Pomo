@@ -46,7 +46,7 @@ render() {
         <View style={styles.middleSection}>
             <Image 
                 style = {styles.logo}
-                source = {require('../../images/coaches.png')}
+                source = {require('../../images/hourglass5.png')}
 
                 />
                 <Text style = {styles.timerText}>{this.props.time}</Text>
