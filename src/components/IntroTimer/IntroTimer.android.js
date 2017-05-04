@@ -52,7 +52,7 @@ export default class IntroTimer extends Component {
                 <View style = {styles.logoContainer}>
                 <Image 
                 style = {styles.logo}
-                source = {require('../../images/coaches.png')}
+                source = {require('../../images/coach2.png')}
 
                 />
                 </View>

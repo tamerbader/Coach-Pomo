@@ -30,7 +30,7 @@ export default class Login extends Component {
                 <View style = {styles.logoContainer}>
                     <Image 
                     style = {styles.logo}
-                    source = {require('../../images/coaches.png')}
+                    source = {require('../../images/coach2.png')}
                      />
                      <Text style = {styles.slogan}>Your Focus Coach Using React Native!</Text>
 
