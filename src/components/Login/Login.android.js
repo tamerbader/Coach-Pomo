@@ -28,11 +28,11 @@ export default class Login extends Component {
             <KeyboardAvoidingView behavior = 'padding' keyboardVerticalOffset={-220} style = {styles.container}>
 
                 <View style = {styles.logoContainer}>
-                    <Image 
+                    <Image
                     style = {styles.logo}
                     source = {require('../../images/coach2.png')}
                      />
-                     <Text style = {styles.slogan}>Hi! I'm Coach Pomo, Your Focus Coach</Text>
+                     <Text style = {styles.slogan}>Hi!</Text>
 
                 </View>
                 <View style = {styles.login}>
@@ -64,7 +64,7 @@ export default class Login extends Component {
 
 
          </View>
-         
+
         </View>
                 </View>
             </KeyboardAvoidingView>
@@ -116,14 +116,14 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         borderRadius: 20,
         fontFamily: 'sans-serif-thin',
-        
+
     },
     container1: {
         flex: 1,
     },
     buttonConatainer: {
         flex: 2,
-        flexDirection: 'row',  
+        flexDirection: 'row',
     },
     buttonWrappersign: {
         width: 150,

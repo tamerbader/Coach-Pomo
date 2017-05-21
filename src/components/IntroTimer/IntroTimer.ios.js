@@ -13,28 +13,20 @@ import {
 } from 'react-native';
 
 
-
-
 export default class IntroTimer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             defaultValue:25,
+            rawTime: 25,
             value:'0 Hr : 25 Min',
             minimumValue: 0,
             maximumValue: 300,
             step: 5,
             hidden:true,
             visible:false,
-            proximity: false,
         };
     }
-
-    onPress = () => {
-    this.props.navigator.push({
-        id: 'Timer'
-    });
-};
 
     _updateTime(value) {
         var hours = 0;
@@ -44,17 +36,23 @@ export default class IntroTimer extends Component {
         hours  = Math.floor(value/60);
         minutes = Math.floor((value - (hours*60)));
         var time = hours + " Hr : " + minutes + " Min";
+        this.setState({rawTime: value});
         this.setState({value: time});
     }
 
+    onPress = () => {
+    this.props.navigator.push({
+        id: 'Timer',
+        time: this.state.rawTime,
+    });
+};
 
-    
 
     render() {
         return (
             <View style = {styles.container}>
                 <View style = {styles.logoContainer}>
-                <Image 
+                <Image
                 style = {styles.logo}
                 source = {require('../../images/coach2.png')}
 
@@ -66,6 +64,7 @@ export default class IntroTimer extends Component {
                 <View style = {styles.timerContainer}>
                     <View style = {styles.timerWrapper}>
                         <TextInput
+                            underlineColorAndroid='transparent'
                             style = {styles.timer}
                             defaultValue = {"" + this.state.value}
                             editable = {this.state.hidden}
@@ -79,17 +78,19 @@ export default class IntroTimer extends Component {
                 </View>
 
                 <View style = {styles.selector}>
-                    <Slider 
+                    <Slider
                     value = {this.state.defaultValue}
                     style = {styles.slider}
+                    thumbTintColor = '#ffffff'
                     minimumTrackTintColor = '#ffffff'
+                    maximumTrackTintColor = '#ffffff'
                     minimumValue = {this.state.minimumValue}
                     maximumValue = {this.state.maximumValue}
                     step = {this.state.step}
                     onValueChange={(value) => this._updateTime(value)}
                     />
                     <View style = {styles.buttonConatainer}>
-            <TouchableOpacity onPress={() => {this.onPress()}} >
+            <TouchableOpacity onPress={() => {this.onPress()}}>
              <View style = {styles.buttonWrapper}>
                  <Text style = {styles.buttonText}>Continue</Text>
             </View>
@@ -102,7 +103,6 @@ export default class IntroTimer extends Component {
             </View>
         );
     }
-
 }
 
 const styles = StyleSheet.create({
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     logo: {
         width: 100,
         height: 100,
-        
+
 
     },
     logoContainer: {

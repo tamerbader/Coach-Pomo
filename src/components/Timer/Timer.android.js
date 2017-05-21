@@ -20,7 +20,7 @@ export default class Timer extends Component {
     componentDidMount(){
  Proximity.addListener(this._proximityListener);
 }
- 
+
  _proximityListener(data) {
      if (data.proximity) {
          Alert.alert(
@@ -44,7 +44,7 @@ render() {
             <Text style = {styles.warning}>*For Best Experience Plug In Charger!</Text>
         </View>
         <View style={styles.middleSection}>
-            <Image 
+            <Image
                 style = {styles.logo}
                 source = {require('../../images/hourglass5.png')}
 
@@ -53,7 +53,7 @@ render() {
                 <Text style = {styles.ready}>Ready? Put Your Phone Face Down To Begin</Text>
         </View>
         <View style={styles.bottomSection}>
-            <Text style = {styles.giveUp}>Stop! I Can't Handle!</Text>
+            <Text style = {styles.giveUp}>Stop!</Text>
         </View>
     </View>
 
@@ -62,7 +62,7 @@ render() {
 }
 
 const styles = StyleSheet.create({
-    
+
     globalContainer: {
         flex:6,
         backgroundColor: '#000000'

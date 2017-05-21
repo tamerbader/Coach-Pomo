@@ -13,6 +13,7 @@ import {
   Navigator,
 } from 'react-native';
 
+
 import Login from './src/components/Login/Login';
 import IntroTimer from './src/components/IntroTimer/IntroTimer'
 import Timer from './src/components/Timer/Timer'
@@ -26,17 +27,17 @@ export default class Coach extends Component {
           case 'IntroTimer':
             return (<IntroTimer navigator={navigator} title="IntroTimer" />)
           case 'Timer':
-            return (<Timer navigator={navigator} title="Timer" />)
+            return (<Timer navigator={navigator} title="Timer" time={route.time} />)
       }
   }
   render() {
     return (
-      
-        <Navigator 
+
+        <Navigator
           initialRoute={{id: 'Login'}}
           renderScene={this.renderScene}
           configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
-        
+
         />
 
 

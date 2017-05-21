@@ -5,52 +5,56 @@ StyleSheet,
 Text,
 View,
 Image,
-Alert,
+Alert
 } from 'react-native';
 
 import Proximity from 'react-native-proximity';
 
 export default class Timer extends Component {
-
-    
-
+    constructor(props) {
+        super(props);
+        this.state =  {
+            values: 0,
+            showAlert: false,
+        };
+        this._proximityListener = this._proximityListener.bind(this);
+    }
     componentDidMount(){
  Proximity.addListener(this._proximityListener);
 }
- 
+
  _proximityListener(data) {
      if (data.proximity) {
-         Alert.alert(
-  'WOW!',
-  'You Actually Put Your Phone Down',
-  [
-    {text: 'KYS', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-    {text: ';)', onPress: () => console.log('OK Pressed')},
-  ],
-  { cancelable: false }
-)
+       this.setState({showAlert: true});
+     } else{
+       this.setState({showAlert: false});
      }
  }
 
 
 
 render() {
+    if (this.state.showAlert == true) {
+      display = 'Showing';
+    } else {
+      display = 'Not Showing';
+    }
     return (
     <View style = {styles.globalContainer}>
         <View style={styles.topSection}>
             <Text style = {styles.warning}>*For Best Experience Plug In Charger!</Text>
         </View>
         <View style={styles.middleSection}>
-            <Image 
+            <Image
                 style = {styles.logo}
-                source = {require('../../images/hourglass4.png')}
+                source = {require('../../images/hourglass5.png')}
 
                 />
-                <Text style = {styles.timerText}>0 Hr : 35 Min</Text>
+                <Text style = {styles.timerText}>{this.props.time}</Text>
                 <Text style = {styles.ready}>Ready? Put Your Phone Face Down To Begin</Text>
         </View>
         <View style={styles.bottomSection}>
-            <Text style = {styles.giveUp}>Stop! I Can't Handle!</Text>
+            <Text style = {styles.giveUp}>{display}</Text>
         </View>
     </View>
 
@@ -59,7 +63,7 @@ render() {
 }
 
 const styles = StyleSheet.create({
-    
+
     globalContainer: {
         flex:6,
         backgroundColor: '#000000'
