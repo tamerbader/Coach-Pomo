@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import Proximity from 'react-native-proximity';
-//
+
 export default class Timer extends Component {
   constructor(props) {
     super(props);
