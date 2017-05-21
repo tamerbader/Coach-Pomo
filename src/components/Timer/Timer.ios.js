@@ -14,35 +14,22 @@ export default class Timer extends Component {
   constructor(props) {
     super(props);
     this.state =  {
-      values: 0,
+      values: this.props.time,
       showAlert: false,
     };
     this._proximityListener = this._proximityListener.bind(this);
   }
-  componentWillMount() {
-    this.setState({values: this.props.time});
 
-  }
   componentDidMount(){
     Proximity.addListener(this._proximityListener);
-    if (this.state.showAlert == true) {
-  //    this.beginCountdown();
-    }
     }
   componentWillUnmount() {
     Proximity.removeListener(this._proximityListener);
     }
-    componentDidUpdate() {
-      if (this.state.showAlert == true) {
-    //    this.beginCountdown();
-      }
-    }
 
-    _proximityListener(data) {
+  _proximityListener(data) {
      if (data.proximity) {
-       this.beginCountdown();
-      } else{
-        this.setState({showAlert: false});
+       this.setState({showAlert: true});
       }
     }
 
@@ -69,6 +56,9 @@ export default class Timer extends Component {
     render() {
 
       let display = this.updateClock();
+      if (this.state.showAlert == true && this.state.values != 0) {
+        this.beginCountdown();
+      }
 
       return (
         <View style = {styles.globalContainer}>
