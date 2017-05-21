@@ -19,15 +19,27 @@ export default class Timer extends Component {
     };
     this._proximityListener = this._proximityListener.bind(this);
   }
+  componentWillMount() {
+    this.setState({values: this.props.time});
+
+  }
   componentDidMount(){
     Proximity.addListener(this._proximityListener);
+    if (this.state.showAlert == true) {
+      this.beginCountdown();
+    }
     }
   componentWillUnmount() {
     Proximity.removeListener(this._proximityListener);
     }
+    componentDidUpdate() {
+      if (this.state.showAlert == true) {
+        this.beginCountdown();
+      }
+    }
 
     _proximityListener(data) {
-      if (data.proximity) {
+     if (data.proximity) {
         this.setState({showAlert: true});
       } else{
         this.setState({showAlert: false});
@@ -35,21 +47,29 @@ export default class Timer extends Component {
     }
 
 
+    updateClock() {
+      var value = this.state.values;
+      var hours = 0;
+      var minutes = 0;
+
+      hours  = Math.floor(value/60);
+      minutes = Math.floor((value - (hours*60)));
+      var time = hours + " Hr : " + minutes + " Min";
+      return time;
+    }
+
+    beginCountdown() {
+      setTimeout(() => {
+      this.setState({values: (this.state.values - 1)});
+    }, 1000);
+    }
+
+
 
     render() {
-      if (this.state.showAlert == true) {
-        Alert.alert(
- 'Alert',
- 'Countdown Has Started',
- [
-   {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-   {text: 'Ok', onPress: () => console.log('OK Pressed')},
- ],
- { cancelable: false }
-);
-      } else {
-        display = 'Not Showing';
-      }
+
+      let display = this.updateClock();
+
       return (
         <View style = {styles.globalContainer}>
         <View style={styles.topSection}>
@@ -61,7 +81,7 @@ export default class Timer extends Component {
         source = {require('../../images/hourglass5.png')}
 
         />
-        <Text style = {styles.timerText}>{this.props.time}</Text>
+        <Text style = {styles.timerText}>{display}</Text>
         <Text style = {styles.ready}>Ready? Put Your Phone Face Down To Begin</Text>
         </View>
         <View style={styles.bottomSection}>
