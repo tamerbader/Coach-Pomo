@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import Proximity from 'react-native-proximity';
-
+//
 export default class Timer extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ export default class Timer extends Component {
   componentDidMount(){
     Proximity.addListener(this._proximityListener);
     if (this.state.showAlert == true) {
-      this.beginCountdown();
+  //    this.beginCountdown();
     }
     }
   componentWillUnmount() {
@@ -34,13 +34,13 @@ export default class Timer extends Component {
     }
     componentDidUpdate() {
       if (this.state.showAlert == true) {
-        this.beginCountdown();
+    //    this.beginCountdown();
       }
     }
 
     _proximityListener(data) {
      if (data.proximity) {
-        this.setState({showAlert: true});
+       this.beginCountdown();
       } else{
         this.setState({showAlert: false});
       }
