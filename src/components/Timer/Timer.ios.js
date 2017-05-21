@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Proximity from 'react-native-proximity';
+import BackgroundTimer from 'react-native-background-timer';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -16,12 +17,14 @@ export default class Timer extends Component {
     this.state =  {
       values: this.props.time,
       showAlert: false,
+      interval: null,
     };
     this._proximityListener = this._proximityListener.bind(this);
   }
 
   componentDidMount(){
     Proximity.addListener(this._proximityListener);
+
     }
   componentWillUnmount() {
     Proximity.removeListener(this._proximityListener);
@@ -29,9 +32,20 @@ export default class Timer extends Component {
 
   _proximityListener(data) {
      if (data.proximity) {
-       this.setState({showAlert: true});
-      }
-    }
+       if (this.state.showAlert == false) {
+         this.setState({showAlert: true});
+         this.setState({interval: BackgroundTimer.setInterval(() => {
+           this.setState({values: this.state.values - 1});
+            // this will be executed every 200 ms
+            // even when app is the the background
+        console.log('tic');
+      }, 900)});
+       }
+      } else {
+          BackgroundTimer.clearInterval(this.state.interval);
+          this.setState({showAlert: false});
+        }
+   }
 
 
     updateClock() {
@@ -45,19 +59,13 @@ export default class Timer extends Component {
       return time;
     }
 
-    beginCountdown() {
-      setTimeout(() => {
-      this.setState({values: (this.state.values - 1)});
-    }, 1000);
-    }
-
 
 
     render() {
 
       let display = this.updateClock();
       if (this.state.showAlert == true && this.state.values != 0) {
-        this.beginCountdown();
+        //this.beginCountdown();
       }
 
       return (
