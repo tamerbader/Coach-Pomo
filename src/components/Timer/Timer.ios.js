@@ -5,7 +5,8 @@ import {
   Text,
   View,
   Image,
-  Alert
+  Alert,
+  Vibration,
 } from 'react-native';
 
 import Proximity from 'react-native-proximity';
@@ -18,6 +19,8 @@ export default class Timer extends Component {
       values: this.props.time,
       showAlert: false,
       interval: null,
+      vibrated: false,
+      finished: false,
     };
     this._proximityListener = this._proximityListener.bind(this);
   }
@@ -32,21 +35,39 @@ export default class Timer extends Component {
 
   _proximityListener(data) {
      if (data.proximity) {
-       if (this.state.showAlert == false) {
-         this.setState({showAlert: true});
-         this.setState({interval: BackgroundTimer.setInterval(() => {
-           this.setState({values: this.state.values - 1});
-            // this will be executed every 200 ms
-            // even when app is the the background
-        console.log('tic');
-      }, 900)});
-       }
+       this.startCountdown();
       } else {
-          BackgroundTimer.clearInterval(this.state.interval);
-          this.setState({showAlert: false});
+        BackgroundTimer.clearInterval(this.state.interval);
         }
    }
 
+   startCountdown = () => {
+         // Starting the Countdown Timer
+         if (this.state.finished == false) {
+         this.setState({interval: BackgroundTimer.setInterval(() => {
+           // Subtracting from the time each second
+             this.setState({values: this.state.values - 1});
+             console.log('tic');
+           if (this.state.values <= 4 && this.state.values >= 0) {
+             Vibration.vibrate();
+           }
+           if (this.state.values == 0) {
+             this.endTimer();
+           }
+}, 900)});
+}
+
+   }
+   vibrate = () => {
+     const intervalId = BackgroundTimer.setInterval(() => {
+    Vibration.vibrate([0, 500, 500, 500]);
+}, 5000);
+    }
+
+    endTimer = () => {
+      this.setState({finished: true});
+      BackgroundTimer.clearInterval(this.state.interval);
+    }
 
     updateClock() {
       var value = this.state.values;
