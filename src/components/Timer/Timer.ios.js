@@ -18,7 +18,7 @@ export default class Timer extends Component {
     super(props);
     this.state =  {
       values: this.props.time,
-      showAlert: false,
+      started: false,
       interval: null,
       vibrated: false,
       finished: false,
@@ -45,6 +45,7 @@ export default class Timer extends Component {
    startCountdown = () => {
          // Starting the Countdown Timer
          if (this.state.finished == false) {
+           this.setState({started: true});
          this.setState({interval: BackgroundTimer.setInterval(() => {
            // Subtracting from the time each second
              this.setState({values: this.state.values - 1});
@@ -97,6 +98,7 @@ export default class Timer extends Component {
     render() {
 
       let display = this.updateClock();
+      let prompt = this.state.started ? 'Hey! Put your phone back down!' : 'Ready? Put Your Phone Face Down To Begin';
       if (this.state.showAlert == true && this.state.values != 0) {
         //this.beginCountdown();
       }
@@ -113,7 +115,7 @@ export default class Timer extends Component {
 
         />
         <Text style = {styles.timerText}>{display}</Text>
-        <Text style = {styles.ready}>Ready? Put Your Phone Face Down To Begin</Text>
+        <Text style = {styles.ready}>{prompt}</Text>
         </View>
         <View style={styles.bottomSection}>
         <Text style = {styles.giveUp}>Stop! I Cannot Handle</Text>

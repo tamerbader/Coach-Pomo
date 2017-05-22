@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -35,10 +36,10 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* CoachTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CoachTests.m */; };
 		30D45DCC9BF64FC6B9F25709 /* libRNProximity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97879F8E7E084EC5BBF953DF /* libRNProximity.a */; };
+		45391A20D3744EE18A58E466 /* libRNControlFlashlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E178257F954FDAADECD25F /* libRNControlFlashlight.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A61C0ACEC041474DA705E2B6 /* libRNBackgroundTimer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5A3FD1D020471AA3761109 /* libRNBackgroundTimer.a */; };
-		45391A20D3744EE18A58E466 /* libRNControlFlashlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E178257F954FDAADECD25F /* libRNControlFlashlight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,20 @@
 		1AC0152C1ED298810012FCB7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AC015251ED298810012FCB7 /* RNControlFlashlight.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DF064BF81B9CF99D00FD9B52;
+			remoteInfo = RNControlFlashlightTests;
+		};
+		1ACE2C711ED2A28500FB05D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDA02E17F775482A95B9B03D /* RNControlFlashlight.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DF064BED1B9CF99C00FD9B52;
+			remoteInfo = RNControlFlashlight;
+		};
+		1ACE2C731ED2A28500FB05D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDA02E17F775482A95B9B03D /* RNControlFlashlight.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = DF064BF81B9CF99D00FD9B52;
 			remoteInfo = RNControlFlashlightTests;
@@ -293,13 +308,13 @@
 		2D02E47B1E0B4A5D006451C7 /* Coach-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coach-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Coach-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coach-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B5A3FD1D020471AA3761109 /* libRNBackgroundTimer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBackgroundTimer.a; sourceTree = "<group>"; };
+		54E178257F954FDAADECD25F /* libRNControlFlashlight.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNControlFlashlight.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		97879F8E7E084EC5BBF953DF /* libRNProximity.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNProximity.a; sourceTree = "<group>"; };
 		A95338CDE89E475BBE368BB6 /* RNBackgroundTimer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNBackgroundTimer.xcodeproj; path = "../node_modules/react-native-background-timer/ios/RNBackgroundTimer.xcodeproj"; sourceTree = "<group>"; };
-		EDA02E17F775482A95B9B03D /* RNControlFlashlight.xcodeproj */ = {isa = PBXFileReference; name = "RNControlFlashlight.xcodeproj"; path = "../node_modules/react-native-control-flashlight-ios/RNControlFlashlight.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		54E178257F954FDAADECD25F /* libRNControlFlashlight.a */ = {isa = PBXFileReference; name = "libRNControlFlashlight.a"; path = "libRNControlFlashlight.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		EDA02E17F775482A95B9B03D /* RNControlFlashlight.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNControlFlashlight.xcodeproj; path = "../node_modules/react-native-control-flashlight-ios/RNControlFlashlight.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,6 +501,15 @@
 			children = (
 				1AC0152B1ED298810012FCB7 /* libRNControlFlashlight.a */,
 				1AC0152D1ED298810012FCB7 /* RNControlFlashlightTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1ACE2C501ED2A28400FB05D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1ACE2C721ED2A28500FB05D2 /* libRNControlFlashlight.a */,
+				1ACE2C741ED2A28500FB05D2 /* RNControlFlashlightTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -730,6 +754,10 @@
 					ProjectRef = 1AC015251ED298810012FCB7 /* RNControlFlashlight.xcodeproj */;
 				},
 				{
+					ProductGroup = 1ACE2C501ED2A28400FB05D2 /* Products */;
+					ProjectRef = EDA02E17F775482A95B9B03D /* RNControlFlashlight.xcodeproj */;
+				},
+				{
 					ProductGroup = 0C54DF6F1EB8E8AC00BB5218 /* Products */;
 					ProjectRef = 25B0B3992D224C959111F02C /* RNProximity.xcodeproj */;
 				},
@@ -834,6 +862,20 @@
 			fileType = wrapper.cfbundle;
 			path = RNControlFlashlightTests.xctest;
 			remoteRef = 1AC0152C1ED298810012FCB7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1ACE2C721ED2A28500FB05D2 /* libRNControlFlashlight.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNControlFlashlight.a;
+			remoteRef = 1ACE2C711ED2A28500FB05D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1ACE2C741ED2A28500FB05D2 /* RNControlFlashlightTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RNControlFlashlightTests.xctest;
+			remoteRef = 1ACE2C731ED2A28500FB05D2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
