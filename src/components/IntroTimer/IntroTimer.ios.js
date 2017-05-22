@@ -18,7 +18,7 @@ export default class IntroTimer extends Component {
         super(props);
         this.state = {
             defaultValue:25,
-            rawTime: 25,
+            rawTime: 1500,
             value:'0 Hr : 25 Min',
             minimumValue: 0,
             maximumValue: 300,
@@ -36,7 +36,8 @@ export default class IntroTimer extends Component {
         hours  = Math.floor(value/60);
         minutes = Math.floor((value - (hours*60)));
         var time = hours + " Hr : " + minutes + " Min";
-        this.setState({rawTime: value});
+        var realTime = value*60;
+        this.setState({rawTime: (value*60)});
         this.setState({value: time});
     }
 

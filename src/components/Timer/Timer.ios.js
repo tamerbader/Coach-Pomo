@@ -7,6 +7,7 @@ import {
   Image,
   Alert,
   Vibration,
+  NativeModules,
 } from 'react-native';
 
 import Proximity from 'react-native-proximity';
@@ -27,8 +28,8 @@ export default class Timer extends Component {
 
   componentDidMount(){
     Proximity.addListener(this._proximityListener);
-
     }
+
   componentWillUnmount() {
     Proximity.removeListener(this._proximityListener);
     }
@@ -67,6 +68,7 @@ export default class Timer extends Component {
     endTimer = () => {
       this.setState({finished: true});
       BackgroundTimer.clearInterval(this.state.interval);
+
     }
 
     updateClock() {
@@ -74,9 +76,11 @@ export default class Timer extends Component {
       var hours = 0;
       var minutes = 0;
 
-      hours  = Math.floor(value/60);
-      minutes = Math.floor((value - (hours*60)));
-      var time = hours + " Hr : " + minutes + " Min";
+      hours  = Math.floor(value/3600);
+      minutes = Math.floor((value - (hours*3600))/60);
+      seconds = Math.floor(value - (hours*3600) - (minutes*60));
+      
+      var time = hours + ":" + minutes + ":" + seconds;
       return time;
     }
 
