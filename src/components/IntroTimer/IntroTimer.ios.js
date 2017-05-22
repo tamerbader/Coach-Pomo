@@ -109,7 +109,7 @@ export default class IntroTimer extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2abf88',
+        backgroundColor: '#3498db',
 
     },
     timerContainer: {
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
         width: 150,
         height: 50,
         margin: 10,
-        backgroundColor: '#26ae7d',
+        backgroundColor: '#338ac5',
         borderRadius: 100/2,
         overflow: 'hidden',
         justifyContent: 'center',
