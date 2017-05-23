@@ -12,6 +12,7 @@ import {
 
 import Proximity from 'react-native-proximity';
 import BackgroundTimer from 'react-native-background-timer';
+//import KeepAwake from 'react-native-keep-awake';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -53,32 +54,17 @@ export default class Timer extends Component {
 
            setTimeout(() => {
              this.update()
-           }, 1000);
-
-
-
-         /*this.setState({interval: BackgroundTimer.setInterval(() => {
-
-           if (this.state.values <= 0) {
-             this.endTimer();
-           } else {
-             // Subtracting from the time each second
-               this.setState({values: this.state.values - 1});
-               console.log('tic');
-             if (this.state.values <= 4 && this.state.values >= 0) {
-               Vibration.vibrate();
-             }
-           }
-
-
-}, 900)});*/
+           }, 1);
 }
 
    }
 
    update = () => {
-     this.setState({values: this.state.values - 1});
-     if(this.state.values <0 || this.state.detected == false) {
+     this.setState({values: this.state.values - 2});
+     if (this.state.values >= 0 && this.state.values <= 5) {
+       Vibration.vibrate();
+     }
+     if(this.state.values <=0 || this.state.detected == false) {
        return;
      } else {
        this.startCountdown();
@@ -120,6 +106,7 @@ export default class Timer extends Component {
 
 
 render() {
+//  KeepAwake.activate();
   let display = this.updateClock();
   let prompt = this.state.started ? 'Hey! Put your phone back down!' : 'Ready? Put Your Phone Face Down To Begin';
   let buttonText = 'Stop! I Cannot Handle This!';
