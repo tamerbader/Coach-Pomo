@@ -22,6 +22,7 @@ export default class Timer extends Component {
       interval: null,
       vibrated: false,
       finished: false,
+      detected: false,
     };
     this._proximityListener = this._proximityListener.bind(this);
   }
@@ -36,9 +37,12 @@ export default class Timer extends Component {
 
   _proximityListener(data) {
      if (data.proximity) {
-       this.startCountdown();
+       this.setState({detected: true});
+         this.startCountdown();
+
       } else {
-        BackgroundTimer.clearInterval(this.state.interval);
+        this.setState({detected: false});
+        //BackgroundTimer.clearInterval(this.state.interval);
         }
    }
 
@@ -46,7 +50,14 @@ export default class Timer extends Component {
          // Starting the Countdown Timer
          if (this.state.finished == false) {
            this.setState({started: true});
-         this.setState({interval: BackgroundTimer.setInterval(() => {
+
+           setTimeout(() => {
+             this.update()
+           }, 1000);
+
+
+
+         /*this.setState({interval: BackgroundTimer.setInterval(() => {
 
            if (this.state.values <= 0) {
              this.endTimer();
@@ -60,10 +71,20 @@ export default class Timer extends Component {
            }
 
 
-}, 900)});
+}, 900)});*/
 }
 
    }
+
+   update = () => {
+     this.setState({values: this.state.values - 1});
+     if(this.state.values <0 || this.state.detected == false) {
+       return;
+     } else {
+       this.startCountdown();
+     }
+   }
+
    vibrate = () => {
      const intervalId = BackgroundTimer.setInterval(() => {
     Vibration.vibrate([0, 500, 500, 500]);
