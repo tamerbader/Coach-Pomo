@@ -47,15 +47,19 @@ export default class Timer extends Component {
          if (this.state.finished == false) {
            this.setState({started: true});
          this.setState({interval: BackgroundTimer.setInterval(() => {
-           // Subtracting from the time each second
-             this.setState({values: this.state.values - 1});
-             console.log('tic');
-           if (this.state.values <= 4 && this.state.values >= 0) {
-             Vibration.vibrate();
-           }
-           if (this.state.values == 0) {
+
+           if (this.state.values <= 0) {
              this.endTimer();
+           } else {
+             // Subtracting from the time each second
+               this.setState({values: this.state.values - 1});
+               console.log('tic');
+             if (this.state.values <= 4 && this.state.values >= 0) {
+               Vibration.vibrate();
+             }
            }
+
+
 }, 900)});
 }
 
@@ -99,8 +103,10 @@ export default class Timer extends Component {
 
       let display = this.updateClock();
       let prompt = this.state.started ? 'Hey! Put your phone back down!' : 'Ready? Put Your Phone Face Down To Begin';
-      if (this.state.showAlert == true && this.state.values != 0) {
-        //this.beginCountdown();
+      let buttonText = 'Stop! I Cannot Handle This!';
+      if (this.state.finished == true) {
+        prompt = 'Times Up! Nice Work. Ready For Some More?';
+        buttonText = 'Alright! Give Me Round 2 Baby!';
       }
 
       return (
@@ -118,7 +124,7 @@ export default class Timer extends Component {
         <Text style = {styles.ready}>{prompt}</Text>
         </View>
         <View style={styles.bottomSection}>
-        <Text style = {styles.giveUp}>Stop! I Cannot Handle</Text>
+        <Text style = {styles.giveUp}>{buttonText}</Text>
         </View>
         </View>
 
@@ -152,7 +158,7 @@ export default class Timer extends Component {
       textAlign: 'center',
       color: '#ffffff',
       fontFamily: 'AvenirNext-UltraLight',
-      fontSize: 55,
+      fontSize: 75,
       marginTop: 50,
     },
     warning: {

@@ -18,6 +18,7 @@ export default class IntroTimer extends Component {
         super(props);
         this.state = {
             defaultValue:25,
+            rawTime: 1500,
             value:'0 Hr : 25 Min',
             minimumValue: 0,
             maximumValue: 300,
@@ -35,13 +36,14 @@ export default class IntroTimer extends Component {
         hours  = Math.floor(value/60);
         minutes = Math.floor((value - (hours*60)));
         var time = hours + " Hr : " + minutes + " Min";
+        this.setState({rawTime: (value*60)});
         this.setState({value: time});
     }
 
     onPress = () => {
     this.props.navigator.push({
         id: 'Timer',
-        time: this.state.value,
+        time: this.state.rawTime,
     });
 };
 
@@ -50,7 +52,7 @@ export default class IntroTimer extends Component {
         return (
             <View style = {styles.container}>
                 <View style = {styles.logoContainer}>
-                <Image 
+                <Image
                 style = {styles.logo}
                 source = {require('../../images/coach2.png')}
 
@@ -76,7 +78,7 @@ export default class IntroTimer extends Component {
                 </View>
 
                 <View style = {styles.selector}>
-                    <Slider 
+                    <Slider
                     value = {this.state.defaultValue}
                     style = {styles.slider}
                     thumbTintColor = '#ffffff'
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
     logo: {
         width: 100,
         height: 100,
-        
+
 
     },
     logoContainer: {

@@ -28,11 +28,11 @@ export default class Login extends Component {
             <KeyboardAvoidingView behavior = 'padding' keyboardVerticalOffset={-220} style = {styles.container}>
 
                 <View style = {styles.logoContainer}>
-                    <Image 
+                    <Image
                     style = {styles.logo}
                     source = {require('../../images/coach2.png')}
                      />
-                     <Text style = {styles.slogan}>Hi! I'm Coach Pomo, Your Focus Coach</Text>
+                     <Text style = {styles.slogan}>Hi! Im Coach Pomo, Your Focus Coach</Text>
 
                 </View>
                 <View style = {styles.login}>
@@ -64,7 +64,7 @@ export default class Login extends Component {
 
 
          </View>
-         
+
         </View>
                 </View>
             </KeyboardAvoidingView>
@@ -75,7 +75,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2abf88',
+        backgroundColor: '#3498db',
 
     },
     logoContainer: {
@@ -116,20 +116,20 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         borderRadius: 20,
         fontFamily: 'Avenir',
-        
+
     },
     container1: {
         flex: 1,
     },
     buttonConatainer: {
         flex: 2,
-        flexDirection: 'row',  
+        flexDirection: 'row',
     },
     buttonWrappersign: {
         width: 150,
         height: 50,
         margin: 10,
-        backgroundColor: '#2abf88',
+        backgroundColor: '#3498db',
         borderRadius: 100/2,
         borderColor: '#ffffff',
         borderWidth: 1,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     },
     buttonTextlogin: {
         fontSize: 21,
-        color: '#2abf88',
+        color: '#3498db',
         fontFamily: 'Avenir',
     }
 });
